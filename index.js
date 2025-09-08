@@ -1,0 +1,21 @@
+const express = require("express");
+const mongoose = require("mongoose");
+const terminologyRoutes = require("./routes/terminology");
+
+const app = express();
+app.use(express.json());
+
+// MongoDB connection
+mongoose.connect("mongodb+srv://efree561:wOenngG3EGowANbY@cluster0.g98bv.mongodb.net/terminology?retryWrites=true&w=majority&appName=Cluster0", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+mongoose.connection.once("open", () =>
+  console.log("✅ Connected to MongoDB")
+);
+
+// Routes
+app.use("/api/v1/terminology", terminologyRoutes);
+
+const PORT = 5000;
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

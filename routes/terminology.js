@@ -42,4 +42,13 @@ router.get("/lookup/:code", async (req, res) => {
   }
 });
 
+router.delete("/deleteAll", async (req, res) => {
+  try {
+    const result = await Terminology.deleteMany({});
+    res.json({ message: "All records deleted", deletedCount: result.deletedCount });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = router;

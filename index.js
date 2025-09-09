@@ -1,6 +1,17 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const terminologyRoutes = require("./routes/terminology");
+const cors = require("cors");
+
+// Middleware
+const corsOptions = {
+  origin: "*", // Allow all origins
+  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
+  allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+};
+ 
+// Use CORS middleware
+app.use(cors(corsOptions));
 
 const app = express();
 app.use(express.json());

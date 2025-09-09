@@ -10,7 +10,6 @@ const corsOptions = {
   allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
 };
  
-// Use CORS middleware
 app.use(cors(corsOptions));
 
 const app = express();

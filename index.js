@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const terminologyRoutes = require("./routes/terminology");
 const cors = require("cors");
-
+const app = express();
 // Middleware
 const corsOptions = {
   origin: "*", // Allow all origins
@@ -12,7 +12,6 @@ const corsOptions = {
  
 app.use(cors(corsOptions));
 
-const app = express();
 app.use(express.json());
 
 // MongoDB connection
